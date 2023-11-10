@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appvideojuegosfinal.AppController">
+   <children>
+      <Label fx:id="txtHeader" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="399.0" style="-fx-background-color: darksalmon;" text="MIS VIDEOJUEGOS">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaVideojuegos" layoutY="50.0" prefHeight="330.0" prefWidth="399.0">
+         <columns>
+            <TableColumn fx:id="colVideojuego" prefWidth="133.0" text="Videojuego" />
+            <TableColumn fx:id="colCategoria" prefWidth="133.0" text="Categoria" />
+            <TableColumn fx:id="colPlataforma" prefWidth="133.0" text="Plataforma" />
+         </columns>
+      </TableView>
+      <RadioButton fx:id="rbCategoria" layoutX="10.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#rbCategoriaPulsado" text="Categoria">
+         <toggleGroup>
+            <ToggleGroup fx:id="filtro" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbPlataforma" layoutX="10.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#rbPlataformaPulsado" text="Plataforma" toggleGroup="$filtro" />
+      <RadioButton fx:id="rbSinFiltros" layoutX="10.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#rbSinFiltrosPulsado" text="Sin filtros" toggleGroup="$filtro" />
+      <ComboBox fx:id="cbCategoriaF" layoutX="100.0" layoutY="430.0" prefWidth="190.0" promptText="Selecciona una categoria..." />
+      <ComboBox fx:id="cbPlataformaF" layoutX="100.0" layoutY="430.0" prefWidth="190.0" promptText="Selecciona una plataforma..." />
+      <Button fx:id="btnFiltrar" layoutX="320.0" layoutY="430.0" mnemonicParsing="false" onAction="#Filtrar" text="Filtrar" />
+      <Button fx:id="btnModoAddVideojuego" layoutY="499.0" mnemonicParsing="false" onAction="#AddVideojuego" prefHeight="100.0" prefWidth="133.0" />
+      <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="42.0" layoutY="510.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../img/simbolomas.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="36.0" layoutY="563.0" mouseTransparent="true" text="Añadir">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnModoEliminarVideojuego" layoutX="133.0" layoutY="499.0" mnemonicParsing="false" onAction="#EliminarVideojuego" prefHeight="100.0" prefWidth="133.0" />
+      <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="175.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/simbolomenos.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="162.0" layoutY="563.0" mouseTransparent="true" text="Eliminar">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnModoModificarVideojuego" layoutX="266.0" layoutY="499.0" mnemonicParsing="false" onAction="#ModificarVideojuego" prefHeight="100.0" prefWidth="133.0" />
+      <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="308.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/simboloasterisco.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="287.0" layoutY="563.0" mouseTransparent="true" text="Modificar">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelNombre" alignment="CENTER_RIGHT" layoutX="45.0" layoutY="139.0" opacity="0.0" prefWidth="60.0" text="Nombre:" />
+      <TextField fx:id="txtNombre" layoutX="112.0" layoutY="135.0" opacity="0.0" prefWidth="190.0" />
+      <Label fx:id="labelCategoria" alignment="CENTER_RIGHT" layoutX="45.0" layoutY="182.0" opacity="0.0" prefWidth="60.0" text="Categoria:" />
+      <ComboBox fx:id="cbCategoria" layoutX="112.0" layoutY="178.0" opacity="0.0" prefHeight="25.0" prefWidth="190.0" promptText="Selecciona una categoria..." />
+      <Label fx:id="labelPlataforma" layoutX="45.0" layoutY="226.0" opacity="0.0" text="Plataforma:" />
+      <ComboBox fx:id="cbPlataforma" layoutX="112.0" layoutY="222.0" opacity="0.0" prefWidth="190.0" promptText="Selecciona una plataforma..." />
+      <Button fx:id="btnAddVideojuego" layoutX="33.0" layoutY="445.0" mnemonicParsing="false" onAction="#Add" opacity="0.0" text="AÑADIR VIDEOJUEGO" />
+      <Label fx:id="labelEliminarVideojuego" layoutX="18.0" layoutY="408.0" opacity="0.0" prefHeight="17.0" prefWidth="355.0" text="Seleccione un videojuego y haga click en &quot;ELIMINAR VIDEOJUEGO&quot;" />
+      <Button fx:id="btnDelVideojuego" layoutX="36.0" layoutY="445.0" mnemonicParsing="false" onAction="#Delete" opacity="0.0" text="ELIMINAR VIDEOJUEGO" />
+      <Label fx:id="labelModificarVideojuego" layoutX="17.0" layoutY="408.0" opacity="0.0" text="Seleccione un videojuego y haga click en &quot;MODIFICAR VIDEOJUEGO&quot;" />
+      <Button fx:id="btnModoModificarVideojuego2" layoutX="42.0" layoutY="445.0" mnemonicParsing="false" onAction="#ModificarVideojuego2" opacity="0.0" text="MODIFICAR VIDEOJUEGO" />
+      <Button fx:id="btnMod" layoutX="61.0" layoutY="445.0" mnemonicParsing="false" onAction="#Modificar" opacity="0.0" text="MODIFICAR" />
+      <Button fx:id="btnCancelar" layoutX="239.0" layoutY="445.0" mnemonicParsing="false" onAction="#Cancelar" opacity="0.0" prefWidth="121.0" text="Cancelar" />
+   </children>
+</AnchorPane>
